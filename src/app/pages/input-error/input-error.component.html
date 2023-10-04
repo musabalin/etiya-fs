@@ -1,0 +1,9 @@
+<span *ngIf="control.errors && control.touched">
+    <span class="text-danger" *ngIf="control.errors['required']">Bu alan zorunludur.</span>
+    <span class="text-danger" *ngIf="control.errors['minlength']">Bu alan minimum {{
+        control.errors["minlength"].requiredLength }} haneli
+        olmalıdır.</span>
+    <span class="text-danger" *ngIf="control.errors['maxlength']">Bu alan maksimum {{
+        control.errors["maxlength"].requiredLength }} haneli
+        olmalıdır.</span>
+</span>
