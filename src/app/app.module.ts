@@ -12,10 +12,11 @@ import { PostListComponent } from './pages/post-list/post-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddPostComponent } from './pages/add-post/add-post.component';
 import { InputErrorComponent } from './pages/input-error/input-error.component';
+import { PostDetailComponent } from './pages/post-detail/post-detail.component';
 
 
 @NgModule({
-  declarations: [AppComponent, DemoComponent, ExampleComponent, CssWorkshopComponent, FirstWorkshopComponent, PostListComponent, AddPostComponent, InputErrorComponent],
+  declarations: [AppComponent, DemoComponent, ExampleComponent, CssWorkshopComponent, FirstWorkshopComponent, PostListComponent, AddPostComponent, InputErrorComponent, PostDetailComponent,PostDetailComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]

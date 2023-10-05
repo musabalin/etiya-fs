@@ -17,5 +17,9 @@ export class PostService {
   add(request: any) {
     return this.httpClient.post('https://jsonplaceholder.typicode.com/posts', request);
   }
+  getById(id: number): Observable<GetAllPostModel> {
+    return this.httpClient.get<GetAllPostModel>("https://jsonplaceholder.typicode.com/posts/" + id);
+
+  }
 
 }

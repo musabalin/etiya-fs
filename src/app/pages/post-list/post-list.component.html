@@ -1,0 +1,9 @@
+<div class="container">
+
+    <li *ngFor="let post of postList">
+        <ul>
+            <a routerLink="/post-detail" [queryParams]="{id:post.id}"> {{post.title}}
+            </a>
+        </ul>
+    </li>
+</div>

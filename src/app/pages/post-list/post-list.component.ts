@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetAllPostModel } from 'src/app/models/post/getPostModel';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -6,6 +7,8 @@ import { PostService } from 'src/app/services/post.service';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
+
+  postList!: GetAllPostModel[];
 
   constructor(private postService: PostService) {
 
@@ -15,7 +18,7 @@ export class PostListComponent implements OnInit {
   }
   fetchPosts() {
     this.postService.getAll().subscribe((response) => {
-      console.log(response);
+      this.postList = response;
     })
   }
 
