@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetAllPostModel } from 'src/app/models/post/getPostModel';
+import { LoadingService } from 'src/app/services/loading.service';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -10,11 +11,15 @@ export class PostListComponent implements OnInit {
 
   postList!: GetAllPostModel[];
 
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService,
+    private loadingService: LoadingService) {
 
   }
   ngOnInit(): void {
     this.fetchPosts();
+    this.loadingService.isLoading$.subscribe((value) => {
+      console.log('Globaldeki loading değeri değişti yeni değer: ', value);
+    });
   }
   fetchPosts() {
     this.postService.getAll().subscribe((response) => {
