@@ -16,11 +16,16 @@ import { PostDetailComponent } from './pages/post-detail/post-detail.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { OverlayLoaderComponent } from './components/overlay-loader/overlay-loader.component';
 import { AuthInterceptor } from './interseptors/auth.interceptor';
+import { JwtModule } from '@auth0/angular-jwt';
 
 
 @NgModule({
   declarations: [AppComponent, DemoComponent, ExampleComponent, CssWorkshopComponent, FirstWorkshopComponent, PostListComponent, AddPostComponent, InputErrorComponent, PostDetailComponent, NotFoundComponent, OverlayLoaderComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule, JwtModule.forRoot({
+    config: {
+      tokenGetter: () => localStorage.getItem('token'),
+    },
+  }),],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
   bootstrap: [AppComponent]
