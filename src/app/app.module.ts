@@ -20,6 +20,9 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { KdvPipe } from './pipes/kdv.pipe';
 import { SearchPostPipe } from './pipes/search-post.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtools, StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { sharedReducers } from './store/shared.reducers';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { HighlightDirective } from './directives/highlight.directive';
     config: {
       tokenGetter: () => localStorage.getItem('token'),
     },
-  }),],
+
+  }),
+    StoreModule.forRoot(sharedReducers),
+    StoreDevtoolsModule.instrument(),],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
   bootstrap: [AppComponent]
