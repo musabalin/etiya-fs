@@ -17,10 +17,13 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { OverlayLoaderComponent } from './components/overlay-loader/overlay-loader.component';
 import { AuthInterceptor } from './interseptors/auth.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
+import { KdvPipe } from './pipes/kdv.pipe';
+import { SearchPostPipe } from './pipes/search-post.pipe';
+import { HighlightDirective } from './directives/highlight.directive';
 
 
 @NgModule({
-  declarations: [AppComponent, DemoComponent, ExampleComponent, CssWorkshopComponent, FirstWorkshopComponent, PostListComponent, AddPostComponent, InputErrorComponent, PostDetailComponent, NotFoundComponent, OverlayLoaderComponent],
+  declarations: [AppComponent, DemoComponent, ExampleComponent, CssWorkshopComponent, FirstWorkshopComponent, PostListComponent, AddPostComponent, InputErrorComponent, PostDetailComponent, NotFoundComponent, OverlayLoaderComponent, KdvPipe, SearchPostPipe, HighlightDirective],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule, JwtModule.forRoot({
     config: {
       tokenGetter: () => localStorage.getItem('token'),

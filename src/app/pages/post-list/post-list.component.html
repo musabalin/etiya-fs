@@ -1,7 +1,12 @@
-<div class="container">
-    <ul *ngFor="let post of postList">
-        <li>
-            <a [routerLink]="'/post-detail/' + post.id">{{ post.title }}</a>
-        </li>
-    </ul>
+<div class="container text-center">
+    <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Ara.." />
+    <li *ngFor="let post of postList | searchPost : searchText">
+        <ul>
+            <p>{{ today | date : "dd/MM/yyyy hh:mm" }}</p>
+            <p>{{ 45 | currency : "₺" }}</p>
+            <p>{{ 1000 | kdv }}</p>
+
+            <a [routerLink]="'/post-detail/' + post.id">{{ post.title }} </a>
+        </ul>
+    </li>
 </div>

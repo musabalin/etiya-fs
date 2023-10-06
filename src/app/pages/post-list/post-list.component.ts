@@ -10,6 +10,8 @@ import { PostService } from 'src/app/services/post.service';
 export class PostListComponent implements OnInit {
 
   postList!: GetAllPostModel[];
+  today: Date = new Date();
+  searchText: string = '';
 
   constructor(private postService: PostService,
     private loadingService: LoadingService) {
