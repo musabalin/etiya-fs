@@ -1,7 +1,7 @@
 <button class="btn btn-primary" (click)="loginSimulation()">Giriş Simülasyonu</button>
-<p appHighlight="yellow">Etiya</p>
+
+<h2 appHighlight="yellow">Etiya</h2>
 <button class="btn btn-danger">Bootstrap Button</button>
-<p [appHighlight]="'red'">{{ title }}</p>
 
 <ul>
     <li *ngFor="let student of students">{{ student }}</li>
@@ -13,37 +13,47 @@
 <h3>Two Way Data Binding</h3>
 
 <label>İsim:</label>
-<input type="text" [value]="name" (change)="changeName($event)">
+<div class="col-4">
+    <input class="form-control" type="text" [value]="name" (change)="changeName($event)">
+</div>
 <p>Şuanki isim değeri: {{name}} </p>
 
-<button (click)="changeNameBtn()" class="btn btn">Değeri Değiştir</button>
+<button (click)="changeNameBtn()" class="btn btn" style="background-color: chocolate;">Değeri Değiştir</button>
 
 <hr>
 <h3>Two Way Data Binding /wAngular Forms</h3>
 
-
-<input class="form-control" [(ngModel)]="address" placeholder="Adres" type="text" />
+<div class="col-4">
+    <input class="form-control" [(ngModel)]="address" placeholder="Adres" type="text" />
+</div>
 <p>Adres: {{address}}</p>
 
 <hr>
 <h3>WorkShop</h3>
+<div class="row">
 
-<div class="form-group mx-sm-3 mb-2">
     <label>Enter To-Do: </label>
-    <input class="form-control " [(ngModel)]="toDo" type="text" placeholder="To-Do" />
-    <button class="btn btn-info" (click)="addToDo()">Add</button>
+    <div class="col-4">
+        <input class="form-control " [(ngModel)]="toDo" type="text" placeholder="To-Do" />
+    </div>
+    <div>
+        <button class="btn btn-info" (click)="addToDo()">Add</button>
+    </div>
+
+
+    <div>
+        <p *ngIf="toDoList.length<0"> Liste boş.</p>
+        <ul>
+            <li *ngFor="let todo of toDoList">{{todo}} <button class="btn btn-secondary"
+                    (click)="removeToDo(todo)">X</button></li>
+        </ul>
+    </div>
+
+    <hr>
+    <h3>Sepetteki Ürün Sayısı: {{cartItems}}</h3>
+    <app-example (onBtnPress)="increase()" (onBtnPress1)="increase1()" title="Ürün 1"></app-example>
+    <app-example title="Ürün 2"></app-example>
+    <app-example title="Ürün 3"></app-example>
+
 
 </div>
-
-<div>
-    <p *ngIf="toDoList.length<0"> Liste boş.</p>
-    <ul>
-        <li *ngFor="let todo of toDoList">{{todo}} <button (click)="removeToDo(todo)">X</button></li>
-    </ul>
-</div>
-
-<hr>
-<h3>Sepetteki Ürün Sayısı: {{cartItems}}</h3>
-<app-example (onBtnPress)="increase()" (onBtnPress1)="increase1()" title="Ürün 1"></app-example>
-<app-example title="Ürün 2"></app-example>
-<app-example title="Ürün 3"></app-example>
