@@ -1,11 +1,21 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { login } from 'src/app/store/auth/auth.actions';
+import { SharedState } from 'src/app/store/shared.reducers';
 
 @Component({
   templateUrl: './first-workshop.component.html',
   styleUrls: ['./first-workshop.component.css']
 })
 export class FirstWorkshopComponent {
-  
+
+  constructor(private store: Store<SharedState>) { }
+
+  loginSimulation() {
+    // bir aksiyonu triggerlamak
+    this.store.dispatch(login({ id: 1, username: 'Musa' }));
+  }
+
   title = 'etiya-fs';
 
   students = ["Musa", "Özge", "Görkem", "Çiğdem"]

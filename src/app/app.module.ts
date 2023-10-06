@@ -23,10 +23,11 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtools, StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { sharedReducers } from './store/shared.reducers';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
-  declarations: [AppComponent, DemoComponent, ExampleComponent, CssWorkshopComponent, FirstWorkshopComponent, PostListComponent, AddPostComponent, InputErrorComponent, PostDetailComponent, NotFoundComponent, OverlayLoaderComponent, KdvPipe, SearchPostPipe, HighlightDirective],
+  declarations: [AppComponent, DemoComponent, ExampleComponent, CssWorkshopComponent, FirstWorkshopComponent, PostListComponent, AddPostComponent, InputErrorComponent, PostDetailComponent, NotFoundComponent, OverlayLoaderComponent, KdvPipe, SearchPostPipe, HighlightDirective, NavbarComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule, JwtModule.forRoot({
     config: {
       tokenGetter: () => localStorage.getItem('token'),
