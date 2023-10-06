@@ -11,7 +11,6 @@ export class LoadingService {
   constructor() { }
 
   startLoading() {
-    // setter
     this.isLoading$.next(true);
   }
   stopLoading() {
